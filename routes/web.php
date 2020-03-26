@@ -21,6 +21,10 @@ Route::get('/menu', function () {
     return view('menu/menu');
 });
 
+Route::get('/about', function () {
+    return view('pages/about');
+});
+
 Route::get('/waitlist', function () {
     return view('pages/waitlist');
 });
