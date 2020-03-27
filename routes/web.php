@@ -18,7 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('/menu', function () {
-    return view('menu/menu');
+    return view('menu/menuindex');
+});
+
+Route::get('/menu/{slug}', function () {
+    return view('menu/single-menu');
 });
 
 Route::get('/about', function () {
@@ -35,8 +39,4 @@ Route::get('/contact', function () {
 
 Route::get('/offers', function () {
     return view('pages/offers');
-});
-
-Route::get('/giftcards', function () {
-    return view('pages/giftcards');
 });
