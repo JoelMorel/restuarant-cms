@@ -1,0 +1,55 @@
+#offers-page {
+    padding: 100px;
+
+    h1 {
+        font-weight: 700;
+        font-size: 3rem;
+        color: black;
+        margin-bottom: 2.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+        font-weight: 500;
+    }
+
+    form {
+        label {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .form-control {
+            input {
+            }
+            select {
+            }
+        }
+        .btn {
+            color: white;
+            background: #9c1b24;
+            border: none;
+            text-align: center;
+        }
+    }
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+    #offers-page {
+        padding: 20px;
+        h1 {
+            font-size: 2rem;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    #offers-page {
+        padding: 20px;
+    }
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+}

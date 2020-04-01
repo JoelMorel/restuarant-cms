@@ -1,0 +1,46 @@
+#menu-page {
+    padding: 100px;
+
+    #food-preview {
+        padding: 0;
+        background: transparent;
+        h2 {
+            color: white;
+            text-transform: uppercase;
+            border-bottom: 5px solid white;
+            border-radius: 10px;
+        }
+        .button-rounded {
+            margin-bottom: 2rem;
+        }
+        .right-btn,
+        .left-btn {
+            background: black;
+        }
+        .food-slider {
+            .slide {
+                &:hover {
+                    .background {
+                        //background: rgba(255, 255, 255, 0.907);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+    #menu-page {
+        padding: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    #menu-page {
+        padding: 20px;
+    }
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+}
