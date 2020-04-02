@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Static Pages
-Route::get('/', 'StaticPagesController@home');
+Route::get('/', 'StaticPagesController@landing');
 Route::get('/menu', 'StaticPagesController@menu');
 Route::get('/menu/{slug}t', 'StaticPagesController@singleMenu');
 
@@ -62,3 +62,7 @@ Route::get('/about', 'StaticPagesController@about');
 Route::get('/waitlist', 'StaticPagesController@about');
 Route::get('/contact', 'StaticPagesController@about');
 Route::get('/offers', 'StaticPagesController@about');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

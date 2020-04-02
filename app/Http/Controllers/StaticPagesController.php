@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class StaticPagesController extends Controller
 {
-    public function home(){
-        return view('/');
+    public function landing(){
+        return view('landing');
     }
     public function about(){
         return view('pages/about');
