@@ -10,13 +10,13 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Food Categories </h2>
+                    <h2 class="pageheader-title">Offers </h2>
                     <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="#/admin/all" class="breadcrumb-link">Food Categories</a></li>
+                                <li class="breadcrumb-item"><a href="#/admin/all" class="breadcrumb-link">All Offers</a></li>
                                
                             </ol>
                         </nav>
@@ -34,16 +34,16 @@
                 <!-- ============================================================== -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">All Food Categories</h5>
+                        <h5 class="card-header">Members</h5>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">id</th>
-                                        <th scope="col">title</th>
-                                        <th scope="col">Date Created</th>
-                                        <th scope="col">Edit</th>
-                                        <th scope="col">Delete</th>
+                                        <th scope="col">Full Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone #</th>
+                                        <th scope="col">Date Start</th>
 
 
                                     </tr>
@@ -51,24 +51,13 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Burgers</td>
+                                        <td>Jacob Burgs</td>
+                                        <td>jayburgs@hotmail.com</td>
+                                        <td>555-555-1234</td>
                                         <td>4/1/2020</td>
-                                    <td><a href="admin/food-categories/1/edit"><i class="far fa-edit"></i></a></td>
-                                        <td><a href="admin/food-categories/1/delete" onclick="if (! confirm('Are you sure you want to delete this? ')) {return false}"><i class="far fa-trash-alt"></i></a></td>
-
+                                    
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                
                                 </tbody>
                             </table>
                         </div>
