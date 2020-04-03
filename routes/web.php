@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Static Pages
-Route::get('/', 'StaticPagesController@landing');
+Route::get('/', 'StaticPagesController@home');
 Route::get('/menu', 'StaticPagesController@menu');
 Route::get('/menu/{slug}t', 'StaticPagesController@singleMenu');
 
@@ -41,6 +41,7 @@ Route::get('/admin/reservations', 'admin\CustomersController@allReservations');
 // Admin/Users
 Route::get('/admin/users/', 'admin\UsersController@index');
 Route::get('/admin/users/create', 'admin\UsersController@create');
+Route::post('/admin/users/create', 'admin\UsersController@store');
 Route::get('/admin/users/{id}/edit', 'admin\UsersController@edit');
 
 

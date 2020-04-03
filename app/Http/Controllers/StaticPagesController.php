@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class StaticPagesController extends Controller
 {
-    public function landing(){
-        return view('landing');
+    public function home(){
+        return view('home');
     }
     public function about(){
         return view('pages/about');
@@ -23,7 +23,7 @@ class StaticPagesController extends Controller
     }
 
     public function menu(){
-        return view('menu/index');
+        return view('menu/menuindex');
     }
     public function singleMenu(){
         return view('menu/single-menu');
