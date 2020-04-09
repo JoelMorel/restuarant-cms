@@ -40,7 +40,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">id</th>
-                                        <th scope="col">title</th>
+                                        <th scope="col">Title</th>
                                         <th scope="col">Date Created</th>
                                         <th scope="col">Edit</th>
                                         <th scope="col">Delete</th>
@@ -49,26 +49,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Burgers</td>
-                                        <td>4/1/2020</td>
-                                    <td><a href="admin/food-categories/1/edit"><i class="far fa-edit"></i></a></td>
-                                        <td><a href="admin/food-categories/1/delete" onclick="if (! confirm('Are you sure you want to delete this? ')) {return false}"><i class="far fa-trash-alt"></i></a></td>
+                                    @foreach ($categories as $categories)
+                                        <tr>
+                                            <th scope="row">{{$categories->id}}</th>
+                                            <td>{{$categories->title}}</td>
+                                            <td>{{date('m/d/Y', strtotime($categories->updated_at))}}</td>
+                                            <td>
+                                                <a href="/admin/food-categories/{{$categories->id}}/edit"><i class="far fa-edit"></i></a>
+                                            </td>
+                                            <td>
+                                                
+                                                <a href="#" onclick="event.preventDefault();
+                        document.getElementById('delete-category-{{$categories->id}}').submit();">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                        <form id="delete-category-{{$categories->id}}" action="/admin/food-categories/{{$categories->id}}/delete" method="POST" style="display: none;">
+                                        @method('DELETE')
+                                        @csrf
+                                    </form>
 
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                            </td>
+                                        </tr>    
+                                    @endforeach
+                                    
                                 </tbody>
                             </table>
                         </div>

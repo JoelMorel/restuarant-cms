@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\FoodCategory;
 
 class FoodCategoriesController extends Controller
 {
@@ -12,15 +13,66 @@ class FoodCategoriesController extends Controller
         $this->middleware('auth');
     }
 
+ 
+
     public function index(){
-        return view('admin/food-categories/all');
-    }
+        $categories = FoodCategory::paginate(10);
 
+        return view('admin/food-categories/all', [
+            'categories' => $categories
+        ]);
+    }
     public function create(){
-        return view('admin/food-categories/create');
+       
+        return view('admin/food-categories/create'
+        );
+    }
+    public function store(){
+        request()->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'image_url' => ['required', 'string', 'min:8'],
+        ]);
+        
+        $category = new FoodCategory();
+        $category->title = request('title');
+        $category->description = request('description');
+        $category->image_url = request('image_url');
+        $category->save();
+
+        return redirect('/admin/food-categories');
     }
 
-    public function edit(){
-        return view('admin/food-categories/edit');
+    public function edit($id){
+        
+        $category =FoodCategory::find($id);
+
+        return view('admin/food-categories/edit', [
+            'category' => $category,
+            
+        ]);
+    }
+
+    public function update($id){
+        request()->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'image_url' => ['required', 'string', 'min:8'],
+        ]);
+        
+        $category = FoodCategory::find($id);
+        $category->title = request('title');
+        $category->description = request('description');
+        $category->image_url = request('image_url');
+        $category->save();
+
+        return redirect('/admin/food-categories');
+
+    }
+
+    public function delete($id){
+        $category  =FoodCategory::find($id);
+        $category->delete();
+        return redirect('/admin/food-categories');
     }
 }

@@ -16,7 +16,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="#/admin/all" class="breadcrumb-link">Food Categories</a></li>
+                                <li class="breadcrumb-item"><a href="#/admin/all" class="breadcrumb-link">Food items</a></li>
                                
                             </ol>
                         </nav>
@@ -50,27 +50,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($items as $item)
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Burgers</td>
-                                        <td>$9</td>
-                                        <td>4/1/2020</td>
-                                    <td><a href="/admin/food-items/1/edit"><i class="far fa-edit"></i></a></td>
-                                        <td><a href="/admin/food-items/1/delete" onclick="if (! confirm('Are you sure you want to delete this? ')) {return false}"><i class="far fa-trash-alt"></i></a></td>
+                                        <th scope="row">{{$item->id}}</th>
+                                        <td>{{$item->title}}</td>
+                                        <td>{{date('m/d/Y', strtotime($item->updated_at))}}</td>
+                                        <td>
+                                            <a href="/admin/food-items/{{$item->id}}/edit"><i class="far fa-edit"></i></a>
+                                        </td>
+                                        <td>
+                                            
+                                            <a href="#" onclick="event.preventDefault();
+                                            document.getElementById('delete-item-{{$item->id}}').submit();">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                            <form id="delete-item-{{$item->id}}" action="/admin/food-items/{{$item->id}}/delete" method="POST" style="display: none;">
+                                            @method('DELETE')
+                                            @csrf
+                                </form>
 
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                        </td>
+                                    </tr>    
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
