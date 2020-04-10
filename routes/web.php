@@ -19,11 +19,16 @@ Route::get('/menu', 'StaticPagesController@menu');
 Route::get('/menu/{slug}t', 'StaticPagesController@singleMenu');
 
 Route::get('/about', 'StaticPagesController@about');
+
 Route::get('/reservations', 'StaticPagesController@reservations');
+Route::post('/reservations', 'StaticPagesController@saveReservation');
+Route::get('/reservations/thank-you', 'StaticPagesController@thankYou');
+
+
 Route::get('/contact', 'StaticPagesController@contact');
 Route::get('/offers', 'StaticPagesController@offers');
 Route::post('/offers', 'StaticPagesController@registerMember');
-Route::get('/offers/thank-you', 'StaticPagesController@offersThankYou');
+Route::get('/offers/thank-you', 'StaticPagesController@thankYou');
 
 
 
@@ -46,8 +51,15 @@ Route::delete('/admin/food-items/{id}/delete', 'admin\FoodItemsController@delete
 
 // Admin/Customers
 Route::get('/admin/members', 'admin\MemberController@index');
+Route::delete('/admin/members/{id}/delete', 'admin\MemberController@delete');
 
-Route::get('/admin/reservations', 'admin\CustomersController@allReservations');
+
+Route::get('/admin/reservations', 'admin\ReservationController@index');
+Route::post('/admin/reservations/create', 'admin\ReservationController@store');
+Route::get('/admin/reservations/{id}/edit', 'admin\ReservationController@edit');
+Route::put('/admin/reservations/{id}/edit', 'admin\ReservationController@update');
+Route::delete('/admin/reservations/{id}/delete', 'admin\ReservationController@delete');
+
 
 // Admin/Users
 Route::get('/admin/users/', 'admin\UsersController@index');

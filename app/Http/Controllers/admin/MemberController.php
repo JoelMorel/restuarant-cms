@@ -75,6 +75,6 @@ class MemberController extends Controller
     public function delete($id){
         $member  =Member::find($id);
         $member->delete();
-        return redirect('/admin/food-categories');
+        return redirect('/admin/members');
     }
 }
