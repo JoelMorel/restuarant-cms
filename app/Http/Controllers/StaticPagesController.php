@@ -22,6 +22,30 @@ class StaticPagesController extends Controller
         return view('pages/offers');
     }
 
+    public function registerMember(){
+        request()->validate([
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string'],
+            'email' => ['required', 'string', 'min:8'],
+            'phone_number' => ['required', 'string',],
+
+        ]);
+        
+        $member = new Member();
+        $member->fname = request('fname');
+        $member->lname = request('lname');
+        $member->email = request('email');
+        $member->phone_number = request('phone_number');
+        $member->save();
+
+        return redirect('/offers/thank-you');
+    }
+
+
+    public function offersThankYou(){
+    return view('pages/thank-you');
+    }
+
     public function menu(){
         return view('menu/menuindex');
     }
