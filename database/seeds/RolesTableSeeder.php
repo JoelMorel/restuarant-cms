@@ -22,22 +22,22 @@ class RolesTableSeeder extends Seeder
             'title' => 'Employee',
         ]);
         
-        //assigned user a role
-        DB::table('roles_user')->insert([
+        //assig user a role
+        DB::table('role_user')->insert([
             'role_id' => 1,
             'user_id' => 1,
         ]);
-        DB::table('roles_user')->insert([
+        DB::table('role_user')->insert([
             'role_id' => 2,
             'user_id' => 2,
         ]);
 
-       /*  $faker = Faker::create();
+        $faker = Faker::create();
         foreach(range(3,20) as $index){
-            DB::table('roles_user')->insert([
-                'role_id' => rand(1,2),
+            DB::table('role_user')->insert([
                 'user_id' => $index,
-            ]); */
+                'role_id' => rand(1,2),
+            ]);
         }
 }
-
+}

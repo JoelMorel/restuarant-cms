@@ -1,0 +1,43 @@
+#contact-page {
+    padding: 100px;
+
+    h1 {
+        font-weight: 700;
+        font-size: 3rem;
+        color: black;
+        margin-bottom: 2.5rem;
+    }
+
+    h1 {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: black;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+        font-weight: 500;
+    }
+    iframe {
+        width: 100%;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+    #contact-page {
+        padding: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    #contact-page {
+        padding: 20px;
+    }
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+}
