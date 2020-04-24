@@ -36,7 +36,7 @@
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
                     <div class="ecommerce-widget">
-                        {{-- @if (Auth::user()->isAdmin()) --}}
+                        @if (Auth::user()->isAdmin())
                         <div class="row">
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- @endif --}}
+                        @endif
                         <div class="row">
                             <div class="col-sm-12 col-12">
                                 <div class="card">
