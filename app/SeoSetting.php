@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SEOSetting extends Model
+class SeoSetting extends Model
 {
     //
 }
