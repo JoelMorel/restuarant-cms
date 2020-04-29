@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Member;
 use App\Reservation;
+use App\FoodCategory;
+use App\FoodItem;
+
 /* use App\GeneralSetting;
 use App\SocialSetting; */
 
@@ -12,9 +15,11 @@ use App\SocialSetting; */
 class StaticPagesController extends Controller
 {
     public function home(){
+        $categories = FoodCategory::all();
+
         
         return view('home', [
-        
+            "categories" => $categories,
 
         ]);
     }
@@ -79,11 +84,19 @@ class StaticPagesController extends Controller
     }
 
     public function menu(){
-        return view('menu/menuindex');
+        $categories = FoodCategory::paginate(10);
+
+        return view('menu/menuindex', [
+            'categories' => $categories
+        ]);
     }
     public function singleMenu($slug){
+        $foodCategory = FoodCategory::where('title', '=', $slug);
+        $foodItems = FoodItem::where('category_id', '=', $foodCategory->id)->get();
+
         return view('menu/single-menu', [
-            "foodItem" => ucfirst($slug)
+            "foodItem" => ucfirst($slug),
+            "foodItems" => $foodItems,
         ]);
     }
 

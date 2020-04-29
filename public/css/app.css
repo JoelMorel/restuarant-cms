@@ -882,6 +882,7 @@ h2 {
   #food-preview .food-slider .sliding-system {
     white-space: normal;
     transform: translate3d(0%, 0, 0);
+    transition: all 0.3s ease-in-out;
   }
 
   #food-preview .button-rounded {

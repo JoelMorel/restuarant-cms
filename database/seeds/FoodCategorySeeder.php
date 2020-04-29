@@ -48,5 +48,12 @@ class FoodCategorySeeder extends Seeder
             'created_at' => Carbon::now(),
         ]);
 
+        DB::table('food_categories')->insert([
+            'title' => 'drinks',
+            'description' => 'lorem ipsum',
+            'image_url' => '/img/CHIPS.png',            
+            'updated_at' => Carbon::now(),
+            'created_at' => Carbon::now(),
+        ]);
     }
 }

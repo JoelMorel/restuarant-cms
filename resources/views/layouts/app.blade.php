@@ -19,5 +19,72 @@
         </section>
         
     </section>
+
+    <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+
+    <script>
+        let slides = $('.sliding-system a.slide').length;
+        let maxSlides, moveTotal, currentSlide = 0;
+  
+        $(window).resize(function(){
+            currentSlide = 0;
+            $('.sliding-system').css('transform', 'translate3d(-0%, 0, 0)');
+        })
+  
+        function desktopSlider(){
+            if(a.matches){
+                  maxSlides = Math.ceil((slides*100) / 100);
+                  moveTotal = 100;
+  
+                  $('.right-btn').on('click', () => {
+                      console.log('right');
+                      if(currentSlide < maxSlides){
+                          currentSlide += 100;
+                          $('sliding-system').css('transform', `translate3d(-${currentSlide}%, 0,0)`);
+                      }
+                  });
+  
+                  $('.left-btn').on('click', () => {
+                      console.log('left')
+                      if(currentSlide != 0){
+                          currentSlide -= 100;
+                          $('sliding-system').css('transform', `translate3d(-${currentSlide}%, 0,0)`);
+                      }
+                  });
+            }
+        }
+  
+        var a = window.matchMedia("(min-width: 998px)");
+        desktopSlider(a);
+        a.addListener(desktopSlider);
+  
+        function tabletSlider(){
+            if(b.matches){
+                  maxSlides = Math.ceil((slides*50) / 100);
+                  moveTotal = 100;
+  
+                  $('.right-btn').on('click', () =>{
+                      console.log('right')
+                      if(currentSlide < maxSlides){
+                          currentSlide += 50;
+                          $('sliding-system').css('transform', `translate3d(-${currentSlide}%, 0,0)`)
+                      }
+                  });
+  
+                  $('.left-btn').on('click', () =>{
+                      console.log('left')
+                      if(currentSlide != 0){
+                          currentSlide -= 50;
+                          $('sliding-system').css('transform', `translate3d(-${currentSlide}%, 0,0)`)
+                      }
+                  });
+            }
+        }
+  
+        var b = window.matchMedia("(min-width: 768px)");
+        tabletSlider(b);
+        b.addListener(tabletSlider);
+        </script>
+        
     </body>
 </html>

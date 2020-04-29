@@ -36,4 +36,6 @@
     </div>
   </section>
 
+  @include('includes.food-categories-slider')
+
   @endsection
