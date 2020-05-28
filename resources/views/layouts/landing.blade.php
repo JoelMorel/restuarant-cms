@@ -1,51 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>{{$settings['general']->site_title}}</title>
-
-        <meta name="description"
-        content="Looking to learn to code to get a job as a web developer, software engineer, frontend developer, backend developer, or HTML email developer this the best site.">
-        <meta name="robots" content="follow,index,max-snippet:-1,max-video-preview:-1,max-image-preview:large">
-        <link rel="canonical" href="https://codingphase.com/">
-        <meta property="og:locale" content="en_US">
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="{{$settings['general']->site_title}}">
-        <meta property="og:description"
-        content="{{$settings['seo']->description}}">
-        <meta property="og:url" content="{{$settings['general']->url}}">
-        <meta property="og:site_name" content="{{$settings['general']->site_title}}">
-        <meta property="og:updated_time" content="2020-02-05T17:41:55+00:00">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Bills Burgers">
-        <meta name="twitter:description"
-        content="{{$settings['seo']->description}}">
-
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="/css/app.css">
-
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-        <!-- Styles -->
-        <style>
-
-    
-        </style>
-
+        @include('includes.metatags')
     </head>
-
     <body>
-  <section id="app-layout">
+        <section id="app-layout">
     @include('includes.side-menu')
-
     <div class="welcome-jumbo">
       <div class="status">NEW</div>
       <h1>Billy Burger</h1>
@@ -57,68 +17,65 @@
   <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
 
   <script>
-      let slides = $('.sliding-system a.slide').length;
-      let maxSlides, moveTotal, currentSlide = 0;
-
-      $(window).resize(function(){
-          currentSlide = 0;
-          $('.sliding-system').css('transform', 'translate3d(-0%, 0, 0)');
-      })
-
-      function desktopSlider(){
-          if(a.matches){
-                maxSlides = Math.ceil((slides*100) / 100);
-                moveTotal = 100;
-
-                $('.right-btn').on('click', () => {
-                    console.log('right');
-                    if(currentSlide < maxSlides){
-                        currentSlide += 100;
-                        $('sliding-system').css('transform', `translate3d(-${currentSlide}%, 0,0)`);
-                    }
-                });
-
-                $('.left-btn').on('click', () => {
-                    console.log('left')
-                    if(currentSlide != 0){
-                        currentSlide -= 100;
-                        $('sliding-system').css('transform', `translate3d(-${currentSlide}%, 0,0)`);
-                    }
-                });
+    let slides = $('.sliding-system a.slide').length;
+    let maxSlides;
+    let moveTotal;
+    let currentSlide = 0;
+    $(window).resize(function(){
+      currentSlide = 0;
+      $('.sliding-system').css('transform', 'translate3d(-0%, 0,0');
+    })
+    function desktopSlider(){
+      if(a.matches){
+        maxSlides = Math.ceil((slides * 20) / 100);
+        moveTotal = 100;
+        // Right Button
+        $('.right-btn').on('click', () => {
+          console.log('clicked right btn')
+          if(currentSlide < maxSlides){
+            currentSlide += 100;
+            $('.sliding-system').css('transform', `translate3d(-${currentSlide}%, 0, 0)`);
           }
-      }
-
-      var a = window.matchMedia("(min-width: 998px)");
-      desktopSlider(a);
-      a.addListener(desktopSlider);
-
-      function tabletSlider(){
-          if(b.matches){
-                maxSlides = Math.ceil((slides*50) / 100);
-                moveTotal = 100;
-
-                $('.right-btn').on('click', () =>{
-                    console.log('right')
-                    if(currentSlide < maxSlides){
-                        currentSlide += 50;
-                        $('sliding-system').css('transform', `translate3d(-${currentSlide}%, 0,0)`)
-                    }
-                });
-
-                $('.left-btn').on('click', () =>{
-                    console.log('left')
-                    if(currentSlide != 0){
-                        currentSlide -= 50;
-                        $('sliding-system').css('transform', `translate3d(-${currentSlide}%, 0,0)`)
-                    }
-                });
+        });
+        // Left Button
+        $('.left-btn').on('click', () => {
+          console.log('clicked right btn')
+          if(currentSlide != 0){
+            currentSlide -= 100;
+            $('.sliding-system').css('transform', `translate3d(-${currentSlide}%, 0, 0)`);
           }
+        });
       }
-
-      var b = window.matchMedia("(min-width: 768px)");
-      tabletSlider(b);
-      b.addListener(tabletSlider);
-      </script>
-      
-</body>
+    }
+    var a = window.matchMedia("(min-width: 998px)")
+    desktopSlider(a);
+    a.addListener(desktopSlider);
+    function tabletSlider(){
+      if(b.matches){
+        maxSlides = Math.ceil((slides * 50) / 100);
+        moveTotal = 100;
+        // Right Button
+        $('.right-btn').on('click', () => {
+          console.log('clicked right btn')
+          if(currentSlide < ((maxSlides * 100) - 100)){
+            currentSlide += 50;
+            $('.sliding-system').css('transform', `translate3d(-${currentSlide}%, 0, 0)`);
+          }
+        });
+        // Left Button
+        $('.left-btn').on('click', () => {
+          console.log('clicked right btn')
+          if(currentSlide != 0){
+            currentSlide -= 50;
+            $('.sliding-system').css('transform', `translate3d(-${currentSlide}%, 0, 0)`);
+          }
+        });
+      }
+    }
+    var b = window.matchMedia("(min-width: 768px) and (max-width: 997px");
+    console.log(b)
+    tabletSlider(b);
+    b.addListener(tabletSlider);
+  </script>
+    </body>
 </html>

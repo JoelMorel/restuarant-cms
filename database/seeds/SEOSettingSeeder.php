@@ -13,7 +13,7 @@ class SEOSettingSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('s_e_o_settings')->insert([
+        DB::table('seo_settings')->insert([
             'description' => 'Bills Burger is the best god damn burger place you have to be at!',
             'keywords' => 'burgers, local, grass-fed, cook, angus, beef, char',
             'updated_at' => Carbon::now(),

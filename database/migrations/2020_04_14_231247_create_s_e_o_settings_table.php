@@ -13,7 +13,7 @@ class CreateSEOSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('s_e_o_settings', function (Blueprint $table) {
+        Schema::create('seo_settings', function (Blueprint $table) {
             $table->id();
             $table->text('description');
             $table->text('keywords');
@@ -28,6 +28,6 @@ class CreateSEOSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('s_e_o_settings');
+        Schema::dropIfExists('seo_settings');
     }
 }

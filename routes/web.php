@@ -108,7 +108,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-View::composer(['home', 'layouts/landing', 'pages/about', 'pages/contact', 'pages/offers', 'pages/reservations', 'pages/thank-you', 'pages/contact', 'menu/menuindex', 'menu/single-menu' ], function($view){
+View::composer(['home', 'layouts/landing', 'pages/about', 'pages/contact', 'pages/offers', 'pages/reservations', 'pages/thank-you', 'pages/contact', 'menu/menuindex', 'menu/single-menu', 'includes/metatags'], function($view){
     $generalSetting = GeneralSetting::find(1);
     $socialSetting = SocialSetting::find(1);
     $seoSetting = SeoSetting::find(1);
